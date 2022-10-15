@@ -1,0 +1,187 @@
+// .x-el-breadcrumb {
+//     .el-breadcrumb__inner, .el-breadcrumb__inner a {
+//       color: #fff !important;
+//     }
+//     .el-breadcrumb__separator {
+//       color: #fff;
+//     }
+//   }
+  
+//   .x-el-card {
+//     .el-card__body {
+//       padding: 10px;
+//     }
+//   }
+  
+//   .x-el-card-padding-0 {
+//     .el-card__body {
+//       padding: 0;
+//     }
+//   }
+  
+//   .x-el-table {
+//     .el-table__column-filter-trigger {
+//       line-height: normal;
+//       position: absolute;
+//       top: 2px;
+//       .el-icon-arrow-down {
+//         color: #fff;
+//         font-weight: 700;
+//         font-size: 20px;
+//       }
+//     }
+//     // selection样式
+//     .el-table-column--selection .cell {
+//       padding-right: 10px !important;
+//     }
+//     // 排序样式
+//     .caret-wrapper {
+//       width: 17px !important;
+//       height: 17px !important;
+//       .sort-caret {
+//         left: 5px;
+//       }
+//       .ascending {
+//         top: -4px !important;
+//       }
+//       .descending {
+//         bottom: -2px !important;
+//       }
+//     }
+//     th >.cell.highlight {
+//       color: #fff;
+//     }
+//     .el-table--medium td {
+//       padding: 5px 0 !important;
+//     }
+//     .el-table td {
+//       padding: 5px 0 !important;
+//     }
+//   }
+  
+//   .x-el-link.is-underline::after {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     height: 0;
+//     bottom: 0;
+//     border-width: 1px 0 0 0 !important;
+//     border-style: solid;
+//   }
+  
+  
+//   .x-el-link-font-size-18px {
+//     .el-link--inner {
+//       font-size: 18px;
+//     }
+//   }
+  
+//   .x-el-link-font-size-16px {
+//     .el-link--inner {
+//       font-size: 16px;
+//     }
+//   }
+  
+//   .avatar-uploader {
+//     .el-upload {
+//       border: 1px dashed #d9d9d9;
+//       border-radius: 6px;
+//       cursor: pointer;
+//       position: relative;
+//       overflow: hidden;
+//     }
+//     .avatar-uploader-icon {
+//       font-size: 28px;
+//       color: #8c939d;
+//       width: 140px;
+//       height: 140px;
+//       line-height: 140px;
+//       text-align: center;
+//     }
+  
+//     .avatar {
+//       width: 140px;
+//       height: 140px;
+//       display: block;
+//     }
+//   }
+  
+.x-el-form {
+    .el-form-item.x-form-item-margin-bottom-0px {
+        margin-bottom: 0 !important;
+    }
+    .el-form-item.el-form-item__label-line-height-24px, .el-form-item.el-form-item__content-line-height-24px {
+        .el-form-item__label, .el-form-item__content {
+            line-height: 24px !important;
+        }
+    }
+}
+.x-el-input-b-b-1.el-textarea {
+    .el-textarea__inner {
+        border: none !important;
+        border-bottom: 1px solid #DCDFE6 !important;
+    }
+}
+.x-el-input-b-b-1.el-input {
+    .el-input__inner {
+        border: none !important;
+        border-bottom: 1px solid #DCDFE6 !important;
+    }
+}
+.x-el-input-padding-left-0.el-input {
+    .el-input__inner {
+        padding: 0;
+    }
+}
+.x-el-input-padding-left-0.el-textarea {
+    .el-textarea__inner {
+        padding-left: 0;
+    }
+}
+  
+//   .x-el-form.x-form-item-margin-bottom-5px {
+//     .el-form-item {
+//       margin-bottom: 5px;
+//     }
+//   }
+  
+//   .x-el-form.x-form-item-margin-bottom-10px {
+//     .el-form-item {
+//       margin-bottom: 10px;
+//     }
+//   }
+  
+//   .x-form-item__content-margin-left-0 {
+//     .el-form-item__content {
+//       margin-left: 0 !important;
+//     }
+//   }
+  
+//   .el-popover--plain {
+//     padding: 10px;
+//   }
+  
+//   .x-el-upload {
+//     padding: 10px 20px;
+//     box-sizing: border-box;
+//     line-height: 1;
+//     border: 1px solid #d9d9d9;
+//     cursor: pointer;
+//   }
+  
+//   .x-el-upload-mini {
+//     padding: 7px 15px;
+//   }
+  
+//   .x-el-image-viewer {
+//     .el-icon-circle-close {
+//       color: #fff;
+//     }
+//   }
+  
+//   .x-el-checkbox-disabled {
+//     .el-checkbox__input.is-disabled + span.el-checkbox__label {
+//       color: #606266 !important;
+//     }
+//   }

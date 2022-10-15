@@ -1,0 +1,44 @@
+@import './variables.scss';
+
+.c-blue {
+    color: $blue;
+}
+.c-danger {
+    color: $danger;
+}
+.c-success {
+    color: $success;
+}
+.c-warning {
+    color: $warning;
+}
+.c-gray {
+    color: $gray;
+}
+.ta-r {
+    text-align: right;
+}
+.ta-l {
+    text-align: left;
+}
+.ta-c {
+    text-align: center;
+}
+.d-f {
+    display: flex;
+}
+.f-fd-c {
+    flex-direction: column;
+}
+.f-jc-sb {
+    justify-content: space-between;
+}
+.f-jc-c {
+    justify-content: center;
+}
+.f-ai-c {
+    align-items: center;
+}
+.f-jc-fe {
+    justify-content: flex-end;
+}
