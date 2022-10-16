@@ -52,22 +52,28 @@ async function respHandler(resp) {
                 await timeout(0.1);
                 accessToken = store.state.user.accessToken;
                 if (accessToken) {
-                    times = 0;
                     break;
                 }
             }
+
+            if (times !== 0) {
+                times = 0;
+            }
+
             // 等待次数完毕，且无accessToken时，则不再重新发起请求
             if (!accessToken) {
                 return;
             }
+
+            // 若请求头与store中的token一致，则进行刷新
             if (resp.config.headers["Authorization"].split(" ")[1] === accessToken) {
                 refreshing = true;
                 store.commit("user/SET_ACCESS_TOKEN", { accessToken: "" });
                 
-                const refreshResp = await refresh({ refreshToken: store.state.user.refreshToken })
-                    .catch(error => {
-                        console.log("刷新失败：", error);
-                    });
+                const refreshResp = await refresh({ refreshToken: store.state.user.refreshToken }).catch(error => {
+                    console.log("刷新失败：");
+                    console.log(error);
+                });
                 refreshing = false;
                 // 若重新请求成功，请求失败那个响应结果将会被忽略，以service(response.config)的结果代替
                 if (refreshResp && refreshResp.code === 0) {

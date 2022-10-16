@@ -61,7 +61,6 @@ const defaultFormData = {
     id: "",
     name: "",
     description: "",
-    // permissionIds: []
 };
 
 export default {
@@ -147,7 +146,6 @@ export default {
         async update() {
             this.dialogVisible = false;
             const checked = this.$refs.tree.getCheckedKeys();
-
             // 取与permissionIdsAssigned集合的差集：
             // 要授予的权限；
             this.formData.assigning = getDifference(checked, this.permissionIdsAssigned);

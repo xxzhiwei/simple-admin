@@ -1,11 +1,11 @@
 # simple-admin
 
-> 基于spring-boot的简易后台管理系统
+> 基于vue的简易后台管理系统
 
 ## Build Setup
 
 ```bash
-git clone https://gitee.com/xxzhiwei/simple-admin.git
+git clone https://github.com/xxzhiwei/simple-admin.git
 
 cd simple-admin
 
@@ -33,3 +33,9 @@ npm run lint
 
 npm run lint -- --fix
 ```
+
+## 相关资源
+
+### 管理系统服务端 
+
+simple：https://github.com/xxzhiwei/simple.git

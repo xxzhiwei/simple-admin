@@ -55,7 +55,6 @@ router.beforeEach(async (to, from, next) => {
         return;
     }
     
-    // 没有菜单时
     const _userRoutes = store.state.permission.userRoutes;
     if (_userRoutes && _userRoutes.length) {
         next();
