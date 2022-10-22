@@ -1,26 +1,33 @@
 import router, { asyncRoutes, NOT_FOUND } from './router';
 import store from './store';
-import NProgress from 'nprogress'; // progress bar
+import NProgress from 'nprogress';
 import getPageTitle from '@/utils/get-page-title';
 import { getMenuList } from "@/api/permission";
 
-import 'nprogress/nprogress.css'; // progress bar style
+import 'nprogress/nprogress.css';
 
-const whiteList = ['/login']; // no redirect whitelist
+// 不需要通过接口获取的路径
+const whiteList = ['/login'];
 
 // 创建用户菜单【404页面需要在最后添加】
+// 关于【菜单】的一个注意点：项目采用【若某个用户拥有某个页面的权限，则说明其同时拥有获取该页面下所有数据的权限】，以此来减少分配角色权限时的繁杂度
 function makeUserRoutes(routes, menuList) {
     const _routes = [];
     for (const route of routes) {
-        if (!route.value) {
+        // 用于前端开发新页面时，没有分配权限的情况
+        if (route.temporary) {
             _routes.push(route);
             continue;
         }
+
         const menu = menuList.find((item) => item.value === route.value);
         if (!menu) {
             continue;
         }
-        route.meta.title = menu.name; // 目前只用到了【name这个属性】
+
+        // 目前只用到了【name这个属性】，如有需要，可继续使用其他属性，或者拓展「extra属性」
+        route.meta.title = menu.name;
+        route.value = menu.value;
 
         // 若存在子路由，则继续匹配；
         if (route.children && route.children.length > 0) {
@@ -34,17 +41,16 @@ function makeUserRoutes(routes, menuList) {
     return _routes;
 }
 
-NProgress.configure({ showSpinner: false }); // NProgress Configuration
+// NProgress Configuration
+NProgress.configure({ showSpinner: false });
 
 router.beforeEach(async (to, from, next) => {
-
+    
     // start progress bar
     NProgress.start();
 
-    // set page title
     document.title = getPageTitle(to.meta.title);
 
-    // 白名单跳过校验
     if (whiteList.includes(to.path)) {
         if (to.path === '/login' && store.getters.token) {
             next({ path: '/' });
@@ -54,7 +60,9 @@ router.beforeEach(async (to, from, next) => {
         }
         return;
     }
-    
+
+    // 以当前项目的逻辑来说，由于只会加载当前用户拥有的菜单，所以不会存在【无权限访问某个页面】的情况（即存在404，而不存在403），
+    // 因此此处不需要添加权限判断逻辑；
     const _userRoutes = store.state.permission.userRoutes;
     if (_userRoutes && _userRoutes.length) {
         next();
@@ -73,7 +81,7 @@ router.beforeEach(async (to, from, next) => {
     router.addRoutes(userRoutes);
     store.commit("permission/setRoutes", { routes: userRoutes });
 
-    // 动态添加路由后，将重新进入该页面【这样通过addRoutes添加的路由才会生效，也就是说'当前往router动态添加的路由'会在'下一次router读取数据'的时候生效】
+    // 动态添加路由后，将重新进入该页面，再通过next()放行【这样通过addRoutes添加的路由才会生效，也就是说'当前往router动态添加的路由'会在'下一次router读取数据'的时候生效】
     next({ ...to, replace: true });
 })
 
